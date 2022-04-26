@@ -3,6 +3,6 @@ def islower(c):
     if (c >= 'a' and c <= 'z'):
         return True
     elif (c < ' '):
-       raise TypeError
+        raise TypeError
     else:
         return False
