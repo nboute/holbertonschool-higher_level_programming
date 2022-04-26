@@ -8,6 +8,3 @@ def fizzbuzz():
         if (i % 3 and i % 5):
             print('{}'.format(i), end='')
         print(' ', end='')
-
-
-fizzbuzz()
