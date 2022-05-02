@@ -28,7 +28,7 @@ int		is_palindrome(listint_t **head)
 	listint_t	*left;
 
 	if (!head || !*head)
-		return (0);
+		return (1);
 	left = *head;
 	return (is_palindrome_recurse(&left, left));
 }
