@@ -1,30 +1,6 @@
 #include "Python.h"
 #include <stdio.h>
 
-/**
- * print_python_list - Prints information about a python list
- * @p: Python list
- */
-void print_python_list(PyObject *p)
-{
-	PyListObject	*plist;
-	PyObject		*item;
-	long	i, size;
-
-	printf("[*] Python list info\n");
-	if (!PyList_Check(p))
-		return;
-	plist = (PyListObject *)p;
-	size = PyList_GET_SIZE(plist);
-	printf("[*] Size of the Python List = %ld\n",
-		((PyVarObject *)plist)->ob_size);
-	printf("[*] Allocated = %ld\n", plist->allocated);
-	for (i = 0; i < size; i++)
-	{
-		item = plist->ob_item[i];
-		printf("Element %ld: %s\n", i, item->ob_type->tp_name);
-	}
-}
 
 
 /**
@@ -53,4 +29,32 @@ void print_python_bytes(PyObject *p)
 		printf("%2.2x", (char)(bytes->ob_sval[i]) & 0xFF);
 	}
 	printf("\n");
+}
+
+/**
+ *
+ * print_python_list - Prints information about a python list
+ * @p: Python list
+ */
+void print_python_list(PyObject *p)
+{
+	PyListObject	*plist;
+	PyObject		*item;
+	long	i, size;
+
+	printf("[*] Python list info\n");
+	if (!PyList_Check(p))
+		return;
+	plist = (PyListObject *)p;
+	size = PyList_GET_SIZE(plist);
+	printf("[*] Size of the Python List = %ld\n",
+		((PyVarObject *)plist)->ob_size);
+	printf("[*] Allocated = %ld\n", plist->allocated);
+	for (i = 0; i < size; i++)
+	{
+		item = plist->ob_item[i];
+		printf("Element %ld: %s\n", i, item->ob_type->tp_name);
+		if (PyBytes_Check(plist->ob_item[i]))
+			print_python_bytes((PyObject *)plist->ob_item[i]);
+	}
 }
