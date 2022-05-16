@@ -10,4 +10,3 @@ def safe_function(fct, *args):
     except Exception as e:
         sys.stderr.write(f'Exception: {e}\n')
         return None
-
