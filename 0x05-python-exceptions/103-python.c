@@ -1,6 +1,6 @@
-#include "Python.h"
+#include <Python.h>
 #include <stdio.h>
-
+#include <floatobject.h>
 /**
  * print_python_float - Prints value of a python bytes object
  * @p: Python float object
@@ -9,14 +9,16 @@ void	print_python_float(PyObject *p)
 {
 	PyFloatObject	*obj;
 
+	setbuf(stdout, NULL);
 	obj = (PyFloatObject *)p;
-	printf("[.] bytes object info\n");
+	printf("[.] float object info\n");
 	if (!PyFloat_Check(p))
 	{
 		printf("  [ERROR] Invalid Float Object\n");
 		return;
 	}
-	printf("  value: %lf\n", obj->ob_fval);
+	printf("  value: %s\n", PyOS_double_to_string((double)obj->ob_fval, 'r', 0,
+		Py_DTSF_ADD_DOT_0, NULL));
 }
 
 /**
@@ -28,6 +30,7 @@ void	print_python_bytes(PyObject *p)
 	PyBytesObject	*bytes;
 	long	i, size;
 
+	setbuf(stdout, NULL);
 	printf("[.] bytes object info\n");
 	if (!PyBytes_Check(p))
 	{
@@ -57,10 +60,11 @@ void print_python_list(PyObject *p)
 	PyObject		*item;
 	long	i, size;
 
+	setbuf(stdout, NULL);
 	printf("[*] Python list info\n");
 	if (!PyList_Check(p))
 	{
-		printf("  [ERROR] Invalid Bytes Object\n");
+		printf("  [ERROR] Invalid List Object\n");
 		return;
 	}
 	plist = (PyListObject *)p;
@@ -74,7 +78,7 @@ void print_python_list(PyObject *p)
 		printf("Element %ld: %s\n", i, item->ob_type->tp_name);
 		if (PyBytes_Check(plist->ob_item[i]))
 			print_python_bytes((PyObject *)plist->ob_item[i]);
-		if (PyFloat_Check(plist->ob_item[i]))
+		else if (PyFloat_Check(plist->ob_item[i]))
 			print_python_float((PyObject *)plist->ob_item[i]);
 	}
 }
