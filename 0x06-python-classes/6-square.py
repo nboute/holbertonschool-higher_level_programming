@@ -54,7 +54,6 @@ class Square():
                             " integers")
         self.__position = position
 
-
     @property
     def size(self):
         """property method
