@@ -72,9 +72,10 @@ class Node:
         Args:
             value (Node): Value to set for the next_node
         """
-        if type(value) is not Node and value is not None:
+        if isinstance(value, Node):
+            self.__next_node = value
+        else:
             raise TypeError("next_node must be an Node object")
-        self.__next_node = value
 
 
 class SinglyLinkedList:
