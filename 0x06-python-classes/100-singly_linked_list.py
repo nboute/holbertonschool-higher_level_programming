@@ -22,12 +22,12 @@ by:
 class Node:
     """Defines a node of a singly linked list"""
 
-    def __init__(self, data=0, next_node=None):
+    def __init__(self, data, next_node=None):
         """Sets attributes for a Node object when it is instanciated
 
-            Args:
-                data (int): Content of node
-                next_node (Node): Next node in list
+        Args:
+            data (int): Content of node
+            next_node (Node): Next node in list
         """
         if type(data) is not int:
             raise TypeError("data must be an integer")
@@ -83,7 +83,6 @@ class SinglyLinkedList:
     def __init__(self):
         """Sets attributes for a Node object when it is instanciated"""
         self.__head = None
-        pass
 
     def __str__(self):
         """Sets print value for SinglyLinkedList object"""
