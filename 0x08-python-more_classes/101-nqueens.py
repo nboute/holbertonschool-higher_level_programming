@@ -92,7 +92,7 @@ def nqueens(matrix, size, y):
 
 
 if len(sys.argv) != 2:
-    print("Usage: nqueens Nss")
+    print("Usage: nqueens N")
     exit(1)
 try:
     size = int(sys.argv[1])

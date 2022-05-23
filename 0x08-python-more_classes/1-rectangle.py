@@ -41,13 +41,13 @@ class Rectangle():
             width (int, optional): width of rectangle. Defaults to 0.
             height (int, optional): height of rectangle. Defaults to 0.
         """
-        if type(width) != int:
+        if type(width) is not int:
             raise TypeError("width must be an integer")
-        if width < 0:
+        elif width < 0:
             raise ValueError("width must be >= 0")
-        if type(height) != int:
+        if type(height) is not int:
             raise TypeError("height must be an integer")
-        if height < 0:
+        elif height < 0:
             raise ValueError("height must be >= 0")
         self.__height = height
         self.__width = width
@@ -69,9 +69,9 @@ class Rectangle():
             value (int): width to set for rectangle
 
         """
-        if type(value) != int:
+        if type(value) is not int:
             raise TypeError("value must be an integer")
-        if value < 0:
+        elif value < 0:
             raise ValueError("value must be >= 0")
         self.__width = value
 
@@ -92,8 +92,8 @@ class Rectangle():
             value (int): height to set for rectangle
 
         """
-        if type(value) != int:
+        if type(value) is int:
             raise TypeError("value must be an integer")
-        if value < 0:
+        elif value < 0:
             raise ValueError("value must be >= 0")
         self.__height = value
