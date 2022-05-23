@@ -40,6 +40,7 @@ class Rectangle():
         Args:
             width (int, optional): width of rectangle. Defaults to 0.
             height (int, optional): height of rectangle. Defaults to 0.
+            __width
         """
         if type(width) is not int:
             raise TypeError("width must be an integer")
