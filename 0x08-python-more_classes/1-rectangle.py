@@ -93,7 +93,7 @@ class Rectangle():
             value (int): height to set for rectangle
 
         """
-        if type(value) is int:
+        if type(value) is not int:
             raise TypeError("height must be an integer")
         elif value < 0:
             raise ValueError("height must be >= 0")
