@@ -86,12 +86,14 @@ class Rectangle():
         Args:
             width (int, optional): width of rectangle. Defaults to 0.
             height (int, optional): height of rectangle. Defaults to 0.
+            __width: Private instance attribute: Width of rectangle
+            __height: Private instance attribute: Height of rectangle
         """
-        if type(width) != int:
+        if type(width) is not int:
             raise TypeError("width must be an integer")
         if width < 0:
             raise ValueError("width must be >= 0")
-        if type(height) != int:
+        if type(height) is not int:
             raise TypeError("height must be an integer")
         if height < 0:
             raise ValueError("height must be >= 0")
@@ -116,10 +118,10 @@ class Rectangle():
             value (int): width to set for rectangle
 
         """
-        if type(value) != int:
-            raise TypeError("value must be an integer")
+        if type(value) is not int:
+            raise TypeError("height must be an integer")
         if value < 0:
-            raise ValueError("value must be >= 0")
+            raise ValueError("height must be >= 0")
         self.__width = value
 
     @property
@@ -139,10 +141,10 @@ class Rectangle():
             value (int): height to set for rectangle
 
         """
-        if type(value) != int:
-            raise TypeError("value must be an integer")
+        if type(value) is not int:
+            raise TypeError("height must be an integer")
         if value < 0:
-            raise ValueError("value must be >= 0")
+            raise ValueError("height must be >= 0")
         self.__height = value
 
     def area(self):
@@ -171,19 +173,20 @@ class Rectangle():
                     Rectangle.print_symbol
         """
         s = ""
+        if self.__height == 0 or self.__width == 0:
+            return ""
         for i in range(self.__height):
             for j in range(self.__width):
-                print(str(self.print_symbol), end='')
-            if i < self.__height - 1:
-                print()
-        return ""
+                s += '#'
+            s += '\n'
+        return s[:-1]
 
     def __repr__(self):
         """string representation of the rectangle to recreate the same instance
            using eval()
             string: "Rectangle(width, height)
         """
-        return f'Rectangle({self.__width},{self.__height})'
+        return f'Rectangle({self.__width}, {self.__height})'
 
     def __del__(self):
         """Prints string when an instance of the class is deleted"""
@@ -219,3 +222,4 @@ class Rectangle():
             Rectangle: rectangle with equal width and height
         """
         return cls(size, size)
+
