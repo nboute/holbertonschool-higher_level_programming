@@ -172,14 +172,14 @@ class Rectangle():
             string: rectangle in string format using character
                     Rectangle.print_symbol
         """
-        s = ""
         if self.__height == 0 or self.__width == 0:
-            return ""
+            print("")
         for i in range(self.__height):
             for j in range(self.__width):
-                s += '#'
-            s += '\n'
-        return s[:-1]
+                print(str(self.print_symbol), end='')
+            if i < self.__height - 1:
+                print()
+        return ""
 
     def __repr__(self):
         """string representation of the rectangle to recreate the same instance
