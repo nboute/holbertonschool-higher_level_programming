@@ -167,7 +167,6 @@ class Rectangle():
             s += '\n'
         return s[:-1]
 
-
     def __repr__(self):
         """string representation of the rectangle to recreate the same instance
            using eval()

@@ -134,6 +134,8 @@ class Rectangle():
             string: rectangle in string format using character '#'
         """
         s = ""
+        if self.__height == 0 or self.__width == 0:
+            return ""
         for i in range(self.__height):
             for j in range(self.__width):
                 s += '#'

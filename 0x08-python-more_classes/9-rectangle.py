@@ -222,4 +222,3 @@ class Rectangle():
             Rectangle: rectangle with equal width and height
         """
         return cls(size, size)
-
