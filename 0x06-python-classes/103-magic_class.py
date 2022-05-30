@@ -1,17 +1,18 @@
 #!/usr/bin/python3
 
-import math
-
 """103-magic_class.py
 
-This module contains a class MagicClass that defines a circle
+This module contains a class MagicClass that defines a circle,
+corresponding to a specific bytecode
 """
+
+import math
 
 
 class MagicClass():
     """Defines a circle"""
 
-    def __init__(self, radius):
+    def __init__(self, radius=0):
         """Initalizes a MagicClass object when instantiated"""
         self._MagicClass__radius = 0
         if type(radius) is not int or type(radius) is not float:
