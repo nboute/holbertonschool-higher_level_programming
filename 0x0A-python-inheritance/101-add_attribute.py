@@ -11,7 +11,6 @@ Raise a TypeError exception, with the message 'can't add new attribute'
 
 
 def add_attribute(obj, name, value):
-    try:
-        setattr(obj, name, value)
-    except AttributeError as e:
+    if (hasattr(obj, __dict__) is False):
         raise AttributeError("can't add new attribute")
+    setattr(obj, name, value)
