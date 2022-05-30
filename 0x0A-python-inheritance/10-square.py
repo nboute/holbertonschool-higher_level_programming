@@ -1,14 +1,5 @@
 #!/usr/bin/python3
-"""10-square.py
-
-This module contains a class Square that inherits
-from Rectangle (9-rectangle.py):
-
-Instantiation with size: def __init__(self, size)::
-    - size must be private. No getter or setter
-    - size must be a positive integer, validated by integer_validator
-
-the area() method must be implemented
+"""The module Square inherits from Rectangle which inherits from BaseGeometry
 """
 
 Rectangle = __import__("9-rectangle").Rectangle
