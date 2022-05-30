@@ -1,5 +1,24 @@
 #!/usr/bin/python3
 
+"""101-nqueens.py
+
+This module is a program that solves the Nqueens problem
+Usage: nqueens N
+If the user called the program with the wrong number of arguments, print Usage:
+nqueens N, followed by a new line, and exit with the status 1
+where N must be an integer greater or equal to 4
+If N is not an integer, print N must be a number, followed by a new line, and
+exit with the status 1
+If N is smaller than 4, print N must be at least 4, followed by a new line, and
+exit with the status 1
+The program should print every possible solution to the problem
+One solution per line
+Format: see example
+$ ./101-nqueens.py 4
+[[0, 1], [1, 3], [2, 0], [3, 2]]
+[[0, 2], [1, 0], [2, 3], [3, 1]]
+"""
+
 import sys
 
 
@@ -73,7 +92,7 @@ def nqueens(matrix, size, y):
 
 
 if len(sys.argv) != 2:
-    print("Usage: nqueens Nss")
+    print("Usage: nqueens N")
     exit(1)
 try:
     size = int(sys.argv[1])

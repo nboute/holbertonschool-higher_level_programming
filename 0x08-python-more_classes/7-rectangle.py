@@ -1,8 +1,65 @@
 #!/usr/bin/python3
-"""Rectangle - Class that defines a rectangle"""
+"""7-rectangle.py
+
+This module contains a class Rectangle that defines a rectangle by:
+(based on 6-rectangle.py)
+
+
+Private instance attribute: width:
+
+- property def width(self): to retrieve it
+- property setter def width(self, value): to set it:
+    width must be an integer, otherwise raise a TypeError exception
+        with the message 'width must be an integer'
+    if width is less than 0,
+        raise a ValueError exception with the `message width must be >= 0`
+
+Private instance attribute: height:
+property def height(self): to retrieve it
+
+property setter def height(self, value): to set it:
+
+height must be an integer, otherwise raise a TypeError exception
+    with the message 'height must be an integer'
+
+if height is less than 0, raise a ValueError exception
+    with the message 'height must be >= 0'
+
+Public class attribute number_of_instances:
+- Initialized to 0
+- Incremented during each new instance instantiation
+- Decremented during each instance deletion
+
+Public class attribute print_symbol:
+- Initialized to #
+- Used as symbol for string representation
+- Can be any type
+
+Instantiation with optional width and height:
+    def __init__(self, width=0, height=0):
+
+Public instance method: def area(self):
+    that returns the rectangle area
+
+Public instance method: def perimeter(self):
+    that returns the rectangle perimeter:
+
+    if width or height is equal to 0, perimeter is equal to 0
+
+print() and str() should print the rectangle
+    with the character(s) stored in print_symbol:
+        if width or height is equal to 0, return an empty string
+
+repr() should return a string representation of the rectangle to be able to
+    recreate a new instance by using eval() (see example below)
+
+Print the message Bye rectangle... (... being 3 dots not ellipsis) when an
+instance of Rectangle is deleted
+"""
 
 
 class Rectangle():
+    """Defines a rectangle"""
 
     """Number of instances currently opened"""
     number_of_instances = 0
@@ -15,12 +72,14 @@ class Rectangle():
         Args:
             width (int, optional): width of rectangle. Defaults to 0.
             height (int, optional): height of rectangle. Defaults to 0.
+            __width: Private instance attribute: Width of rectangle
+            __height: Private instance attribute: Height of rectangle
         """
-        if type(width) != int:
+        if type(width) is not int:
             raise TypeError("width must be an integer")
         if width < 0:
             raise ValueError("width must be >= 0")
-        if type(height) != int:
+        if type(height) is not int:
             raise TypeError("height must be an integer")
         if height < 0:
             raise ValueError("height must be >= 0")
@@ -45,10 +104,10 @@ class Rectangle():
             value (int): width to set for rectangle
 
         """
-        if type(value) != int:
-            raise TypeError("value must be an integer")
+        if type(value) is not int:
+            raise TypeError("width must be an integer")
         if value < 0:
-            raise ValueError("value must be >= 0")
+            raise ValueError("width must be >= 0")
         self.__width = value
 
     @property
@@ -68,10 +127,10 @@ class Rectangle():
             value (int): height to set for rectangle
 
         """
-        if type(value) != int:
-            raise TypeError("value must be an integer")
+        if type(value) is not int:
+            raise TypeError("height must be an integer")
         if value < 0:
-            raise ValueError("value must be >= 0")
+            raise ValueError("height must be >= 0")
         self.__height = value
 
     def area(self):
@@ -99,7 +158,8 @@ class Rectangle():
             string: rectangle in string format using character
                     Rectangle.print_symbol
         """
-        s = ""
+        if self.__height == 0 or self.__width == 0:
+            print("")
         for i in range(self.__height):
             for j in range(self.__width):
                 print(str(self.print_symbol), end='')
@@ -112,7 +172,7 @@ class Rectangle():
            using eval()
             string: "Rectangle(width, height)
         """
-        return f'Rectangle({self.__width},{self.__height})'
+        return f'Rectangle({self.__width}, {self.__height})'
 
     def __del__(self):
         """Prints string when an instance of the class is deleted"""
