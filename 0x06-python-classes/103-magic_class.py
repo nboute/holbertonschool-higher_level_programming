@@ -8,6 +8,7 @@ import math
 This module contains a class MagicClass that defines a circle
 """
 
+
 class MagicClass():
     """Defines a circle"""
 
