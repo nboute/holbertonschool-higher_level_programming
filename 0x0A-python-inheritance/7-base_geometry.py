@@ -18,9 +18,6 @@ This module contains a class BaseGeometry (based on 6-base_geometry.py):
 
 class BaseGeometry():
     """Base geometry methods/atributes"""
-    def __init__(self):
-        """ Sets attributes for a BaseGeometry object when it's instanciated"""
-        pass
 
     def area(self):
         """Method to get area of an object. Not yet implemented"""
@@ -28,7 +25,7 @@ class BaseGeometry():
 
     def integer_validator(self, name, value):
         """Checks if given integer has valid type and value"""
-        if (isinstance(value, int) is False):
+        if type(value) is not int:
             raise TypeError(f"{name} must be an integer")
         if value <= 0:
             raise ValueError(f"{name} must be greater than 0")
