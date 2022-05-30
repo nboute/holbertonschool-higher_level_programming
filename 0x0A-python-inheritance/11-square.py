@@ -13,19 +13,22 @@ the area() method must be implemented
 print() should print, and str() should return,
 the square description: [Square] <width>/<height>
 """
-Rectangle = __import__('9-rectangle').Rectangle
+
+Rectangle = __import__("9-rectangle").Rectangle
 
 
 class Square(Rectangle):
-    """Defines a square. Inherits from Rectangle class"""
+    """Defines a square"""
 
     def __init__(self, size):
+        """Initializes a Square object when it is instanciated"""
         super().integer_validator("size", size)
         super().__init__(size, size)
         self.__size = size
 
-    def __str__(self):
-        """Magic method to print square description
-        """
+    def area(self):
+        """Returns area of the Square object"""
+        return self.__size ** 2
 
-        return "[Square] {}/{}".format(self.__size, self.__size)
+    def __str__(self):
+        return f'[Square] {self.__size}/{self.__size}'
