@@ -20,7 +20,6 @@ class Square(Rectangle):
     """Defines a square. Inherits from Rectangle class"""
 
     def __init__(self, size):
-        """Initializes a Square object when it is instanciated"""
         super().integer_validator("size", size)
         super().__init__(size, size)
         self.__size = size
