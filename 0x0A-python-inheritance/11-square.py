@@ -1,5 +1,17 @@
 #!/usr/bin/python3
-"""Square inherits from Rectangle which inherits from BaseGeometry
+"""11-square.py
+
+This module contains a class Square that inherits
+from Rectangle (9-rectangle.py), which inherits from BaseGeometry:
+
+Instantiation with size: def __init__(self, size)::
+    - size must be private. No getter or setter
+    - size must be a positive integer, validated by integer_validator
+
+the area() method must be implemented
+
+print() should print, and str() should return,
+the square description: [Square] <width>/<height>
 """
 Rectangle = __import__('9-rectangle').Rectangle
 
@@ -13,9 +25,6 @@ class Square(Rectangle):
         super().integer_validator("size", size)
         self.__size = size
 
-    def area(self):
-        """Returns area of the Square object"""
-        return self.__size ** 2
-
     def __str__(self):
+        """Returns a string containing the square"""
         return f'[Square] {self.__size}/{self.__size}'
