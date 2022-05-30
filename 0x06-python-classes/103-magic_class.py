@@ -12,7 +12,7 @@ import math
 class MagicClass():
     """Defines a circle"""
 
-    def __init__(self, radius):
+    def __init__(self, radius=0):
         """Initalizes a MagicClass object when instantiated"""
         self.__radius = 0
         if type(radius) is not int and type(radius) is not float:
