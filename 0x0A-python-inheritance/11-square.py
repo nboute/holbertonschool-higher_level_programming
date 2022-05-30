@@ -18,7 +18,7 @@ Rectangle = __import__("9-rectangle").Rectangle
 
 
 class Square(Rectangle):
-    """Defines a square"""
+    """Defines a square. Inherits from Rectangle class"""
 
     def __init__(self, size):
         """Initializes a Square object when it is instanciated"""
