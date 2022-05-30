@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-
 """100-my_int.py
 
 This module contains a class MyInt that inherits from int:

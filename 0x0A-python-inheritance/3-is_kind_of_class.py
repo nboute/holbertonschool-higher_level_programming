@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-
 """3-is_kind_of_class.py
 
     This module contains a function that returns True

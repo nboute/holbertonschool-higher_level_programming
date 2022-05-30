@@ -1,7 +1,4 @@
 #!/usr/bin/python3
-
-Rectangle = __import__("9-rectangle").Rectangle
-
 """11-square.py
 
 This module contains a class Square that inherits
@@ -16,6 +13,8 @@ the area() method must be implemented
 print() should print, and str() should return,
 the square description: [Square] <width>/<height>
 """
+
+Rectangle = __import__("9-rectangle").Rectangle
 
 
 class Square(Rectangle):

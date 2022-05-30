@@ -1,7 +1,4 @@
 #!/usr/bin/python3
-
-BaseGeometry = __import__("7-base_geometry").BaseGeometry
-
 """9-rectangle.py
 
 This module contains a class Rectangle that inherits from BaseGeometry
@@ -17,6 +14,8 @@ the area() method must be implemented
 print() should print, and str() should return
     the following rectangle description: [Rectangle] <width>/<height>
 """
+
+BaseGeometry = __import__("7-base_geometry").BaseGeometry
 
 
 class Rectangle(BaseGeometry):

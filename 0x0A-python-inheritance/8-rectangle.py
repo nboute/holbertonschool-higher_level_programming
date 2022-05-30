@@ -1,7 +1,4 @@
 #!/usr/bin/python3
-
-BaseGeometry = __import__("7-base_geometry").BaseGeometry
-
 """8-rectangle.py
 
 This module contains a class Rectangle that inherits from BaseGeometry
@@ -12,6 +9,8 @@ Instantiation with width and height: def __init__(self, width, height):
     - width and height must be positive integers,
         validated by integer_validator
 """
+
+BaseGeometry = __import__("7-base_geometry").BaseGeometry
 
 
 class Rectangle(BaseGeometry):

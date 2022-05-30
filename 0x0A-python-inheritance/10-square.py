@@ -1,7 +1,4 @@
 #!/usr/bin/python3
-
-Rectangle = __import__("9-rectangle").Rectangle
-
 """10-square.py
 
 This module contains a class Square that inherits
@@ -13,6 +10,8 @@ Instantiation with size: def __init__(self, size)::
 
 the area() method must be implemented
 """
+
+Rectangle = __import__("9-rectangle").Rectangle
 
 
 class Square(Rectangle):
