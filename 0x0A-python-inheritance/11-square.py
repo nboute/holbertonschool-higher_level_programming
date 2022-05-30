@@ -14,7 +14,7 @@ print() should print, and str() should return,
 the square description: [Square] <width>/<height>
 """
 
-Rectangle = __import__("9-rectangle").Rectangle
+Rectangle = __import__('9-rectangle').Rectangle
 
 
 class Square(Rectangle):
@@ -22,14 +22,11 @@ class Square(Rectangle):
 
     def __init__(self, size):
         """Initializes a Square object when it is instanciated"""
-        super().__init__(size, size)
         super().integer_validator("size", size)
+        super().__init__(size, size)
         self.__size = size
-
-    def area(self):
-        """Returns area of the Square object"""
-        return self.__size ** 2
 
     def __str__(self):
         """Returns a string containing the square"""
         return f'[Square] {self.__size}/{self.__size}'
+
