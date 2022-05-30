@@ -75,7 +75,7 @@ class Node:
         if isinstance(value, Node):
             self.__next_node = value
         else:
-            raise TypeError("next_node must be an Node object")
+            raise TypeError("next_node must be a Node object")
 
 
 class SinglyLinkedList:
