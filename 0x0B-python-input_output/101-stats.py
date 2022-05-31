@@ -40,12 +40,12 @@ def print_stats():
 
 try:
     for line in sys.stdin:
+        if it != 0 and it % 10 == 0:
+            print_stats()
         content = line.split()
         if content[-2] in status_codes:
             status_codes[content[-2]] += 1
         file_size += int(content[-1])
-        if it != 0 and it % 10 == 0:
-            print_stats()
         it += 1
 except KeyboardInterrupt:
     print_stats()
