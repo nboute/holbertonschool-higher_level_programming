@@ -5,6 +5,7 @@ after each line containing a specific string (see example):
 
 
 def append_after(filename="", search_string="", new_string=""):
+    """Appends a string after a line if a pattern is found in said line"""
     myList = []
     with open(filename, "r", encoding="utf-8") as myFile:
         myList = myFile.readlines()
