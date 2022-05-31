@@ -43,9 +43,16 @@ try:
         if it != 0 and it % 10 == 0:
             print_stats()
         content = line.split()
-        if content[-2] in status_codes:
-            status_codes[content[-2]] += 1
-        file_size += int(content[-1])
+        try:
+            if content[-2] in status_codes:
+                status_codes[content[-2]] += 1
+        except Exception as e:
+            pass
+        try:
+            file_size += int(content[-1])
+        except Exception as e:
+            pass
         it += 1
 except KeyboardInterrupt:
     print_stats()
+    raise
