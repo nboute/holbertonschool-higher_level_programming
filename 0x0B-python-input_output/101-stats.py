@@ -53,6 +53,7 @@ try:
         except Exception as e:
             pass
         it += 1
+    print_stats()
 except KeyboardInterrupt:
     print_stats()
     raise
