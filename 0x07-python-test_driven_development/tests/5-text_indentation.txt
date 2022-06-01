@@ -26,3 +26,5 @@ School
 Best.
 <BLANKLINE>
 School
+
+>>> text_indentation()

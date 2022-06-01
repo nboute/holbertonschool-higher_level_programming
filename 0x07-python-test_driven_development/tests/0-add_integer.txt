@@ -63,3 +63,10 @@ ValueError: cannot convert float NaN to integer
 >>> add_integer(a)
 Traceback (most recent call last):
 NameError: name 'a' is not defined
+
+>>> add_integer(1)
+99
+
+>>> add_integer(b=5)
+Traceback (most recent call last):
+TypeError: add_integer() missing 1 required positional argument: 'a'

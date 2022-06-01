@@ -17,6 +17,14 @@ TypeError: matrix must be a matrix (list of lists) of integers/floats
 >>> matrix_divided([[1]], float("NaN"))
 [[nan]]
 
+>>> matrix_divided([[1]], "NaN")
+Traceback (most recent call last):
+TypeError: div must be a number
+
+>>> matrix_divided([[1]], 0)
+Traceback (most recent call last):
+ZeroDivisionError: division by zero
+
 >>> matrix_divided([[1], []], float("NaN"))
 Traceback (most recent call last):
 TypeError: Each row of the matrix must have the same size
