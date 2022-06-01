@@ -18,13 +18,13 @@ void	print_python_string(PyObject *p)
 		printf("  [ERROR] Invalid String Object\n");
 		return;
 	}
-	printf("   type: ");
+	printf("  type: ");
 	if (PyUnicode_IS_COMPACT_ASCII(p))
 		printf("compact ascii\n");
 	else
 		printf("compact unicode\n");
-	printf("   length: %lu\n", PyUnicode_GET_LENGTH(p));
-	printf("   value: %ls\n", PyUnicode_AsUnicode(p));
+	printf("  length: %lu\n", PyUnicode_GET_LENGTH(p));
+	printf("  value: %ls\n", PyUnicode_AsUnicode(p));
 }
 
 /**
