@@ -8,7 +8,7 @@
 """
 
 
-def text_indentation(text=""):
+def text_indentation(text):
     """Indents text"""
     if type(text) is not str:
         raise TypeError("text must be a string")
@@ -19,4 +19,3 @@ def text_indentation(text=""):
             print(f'{indent.strip(" ")}\n')
             indent = ""
     print(f'{indent.strip(" ")}', end='')
-
