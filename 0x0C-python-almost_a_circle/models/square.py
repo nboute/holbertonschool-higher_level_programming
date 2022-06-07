@@ -32,7 +32,8 @@ class Square(Rectangle):
         if args is not None and len(args) > 0:
             keylist = ["id", "size", "x", "y"]
             for i in range(len(args)):
-                setattr(self, keylist[i], args[i])
+                if i < 4:
+                    setattr(self, keylist[i], args[i])
         elif kwargs is not None:
             for key, value in kwargs.items():
                 setattr(self, key, value)
