@@ -5,6 +5,7 @@ This module contains a class 'Base'
 
 import json
 import os
+import csv
 
 
 class Base():
@@ -65,4 +66,30 @@ class Base():
                 my_list = cls.from_json_string(my_file.read())
             for i in range(len(my_list)):
                 my_list[i] = cls.create(**my_list[i])
+        return my_list
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """Writes a list of object that inherit from base to a .csv file"""
+        file_name = cls.__name__ + '.csv'
+        with open(file_name, "w+") as csvfile:
+            if cls.__name__ == 'Rectangle':
+                fields = ['id', 'width', 'height', 'x', 'y']
+            elif cls.__name__ == 'Square':
+                fields = ['id', 'size', 'x', 'y']
+            else:
+                return
+            writer = csv.DictWriter(csvfile, fieldnames=fields)
+            writer.writeheader()
+            for elem in list_objs:
+                writer.writerow(elem.to_dictionary())
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """Load list of object from a csv file"""
+        my_list = []
+        file_name = cls.__name__ + '.csv'
+        if os.path.exists(file_name) is True:
+            with open(file_name, "r") as csvfile:
+                my_list = list(csv.DictReader(csvfile))
         return my_list
