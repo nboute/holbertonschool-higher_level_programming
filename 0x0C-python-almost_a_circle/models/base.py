@@ -95,7 +95,9 @@ class Base():
         if os.path.exists(file_name) is True:
             with open(file_name, "r") as csvfile:
                 dictreader = csv.DictReader(csvfile)
-                my_list = [dict([key, int(value)] for key, value in dictionary.items()) for dictionary in dictreader]
+                my_list = [dict([key, int(value)] for key, value
+                                in dictionary.items()) for dictionary
+                           in dictreader]
             for i in range(len(my_list)):
                 my_list[i] = cls.create(**my_list[i])
         return my_list
