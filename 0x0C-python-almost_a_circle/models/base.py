@@ -73,16 +73,19 @@ class Base():
         """Writes a list of object that inherit from base to a .csv file"""
         file_name = cls.__name__ + '.csv'
         with open(file_name, "w+") as csvfile:
-            if cls.__name__ == 'Rectangle':
-                fields = ['id', 'width', 'height', 'x', 'y']
-            elif cls.__name__ == 'Square':
-                fields = ['id', 'size', 'x', 'y']
+            if list_objs is None or len(list_objs) == 0:
+                csvfile.write('[]')
             else:
-                return
-            writer = csv.DictWriter(csvfile, fieldnames=fields)
-            writer.writeheader()
-            for elem in list_objs:
-                writer.writerow(elem.to_dictionary())
+                if cls.__name__ == 'Rectangle':
+                    fields = ['id', 'width', 'height', 'x', 'y']
+                elif cls.__name__ == 'Square':
+                    fields = ['id', 'size', 'x', 'y']
+                else:
+                    return
+                writer = csv.DictWriter(csvfile, fieldnames=fields)
+                writer.writeheader()
+                for elem in list_objs:
+                    writer.writerow(elem.to_dictionary())
 
     @classmethod
     def load_from_file_csv(cls):
@@ -92,4 +95,6 @@ class Base():
         if os.path.exists(file_name) is True:
             with open(file_name, "r") as csvfile:
                 my_list = list(csv.DictReader(csvfile))
+            for i in range(len(my_list)):
+                my_list[i] = cls.create(**my_list[i])
         return my_list
