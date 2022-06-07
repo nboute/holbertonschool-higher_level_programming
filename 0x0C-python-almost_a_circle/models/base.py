@@ -6,6 +6,8 @@ This module contains a class 'Base'
 import json
 import os
 import csv
+import turtle
+import random
 
 
 class Base():
@@ -101,3 +103,33 @@ class Base():
             for i in range(len(my_list)):
                 my_list[i] = cls.create(**my_list[i])
         return my_list
+
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        """Draws list of rectangle and squares using the turtle module"""
+        colorlist = ('red', 'blue', 'purple', 'yellow', 'green', 'pink')
+        my_turtle = turtle.Turtle()
+        my_turtle.up
+        my_turtle.penup()
+        my_turtle.goto(-200, -200)
+        for elem in list_rectangles:
+            my_turtle.penup()
+            my_turtle.goto(-200 + elem.x * 2 + 20, -200 + elem.y * 2 + 20)
+            my_turtle.color(random.choice(colorlist), random.choice(colorlist))
+            my_turtle.begin_fill()
+            for i in range(2):
+                my_turtle.forward(elem.width)
+                my_turtle.left(90)
+                my_turtle.forward(elem.height)
+                my_turtle.left(90)
+            my_turtle.end_fill()
+        for elem in list_squares:
+            my_turtle.penup()
+            my_turtle.goto(-200 + elem.x * 2 + 20, -200 + elem.y * 2 + 20)
+            my_turtle.color(random.choice(colorlist), random.choice(colorlist))
+            my_turtle.begin_fill()
+            for i in range(4):
+                my_turtle.forward(elem.size)
+                my_turtle.left(90)
+            my_turtle.end_fill()
+        turtle.exitonclick()
