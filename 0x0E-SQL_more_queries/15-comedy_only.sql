@@ -8,4 +8,4 @@ ON a.id = b.show_id
 INNER JOIN tv_genres c
 ON b.genre_id = c.id
 WHERE c.name = "Comedy"
-ORDER BY name;
+ORDER BY title ASC;
