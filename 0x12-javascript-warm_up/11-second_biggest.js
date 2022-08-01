@@ -12,6 +12,9 @@ if (argv.length <= 3) {
       secondMax = max;
       max = argv[i];
     }
+    else if (secondMax === undefined || argv[i] > secondMax) {
+      secondMax = argv[i];
+    }
   }
   console.log(secondMax);
 }
