@@ -5,16 +5,13 @@ const argv = process.argv;
 if (argv.length <= 3) {
   console.log('0');
 } else {
-  let max, secondMax;
-  max = argv[2];
-  for (let i = 3; i < argv.length; i++) {
-    if (argv[i] > max) {
-      secondMax = max;
-      max = argv[i];
-    }
-    else if (secondMax === undefined || argv[i] > secondMax) {
-      secondMax = argv[i];
-    }
+  let max;
+  const arrayInt = [];
+  for (let i = 2; i < argv.length; i++) {
+    arrayInt[i - 2] = parseInt(argv[i]);
   }
-  console.log(secondMax);
+  max = Math.max(...arrayInt);
+  arrayInt.splice(arrayInt.indexOf(max), 1);
+  max = Math.max(...arrayInt);
+  console.log(max);
 }
