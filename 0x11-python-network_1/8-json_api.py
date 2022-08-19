@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-# Send a post request to a url, and checks if the response is valid json
+"""Send a post request to a url, and checks if the response is valid json"""
 import requests
 from sys import argv
 
@@ -14,6 +14,6 @@ try:
     if (len(body) == 0):
         print('No result')
     else:
-        print('[{}] {}'.format(body['id'], body['name']))
+        print('[{}] {}'.format(body.get('id'), body.get('name')))
 except Exception as e:
     print('Not a valid JSON')

@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-# Post given email as parameter to given url
+"""Post given email as parameter to given url"""
 import requests
 from sys import argv
 

@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-# Uses github credentials to get id of user, using github API
+"""Uses github credentials to get id of user, using github API"""
 from sys import argv
 import requests
 

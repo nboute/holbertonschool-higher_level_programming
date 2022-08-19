@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-# Display value of a variable in header of given URL
+"""Display value of a variable in header of given URL"""
 from urllib.request import urlopen
 from sys import argv
 

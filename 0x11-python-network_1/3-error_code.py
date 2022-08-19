@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-# Display body of given url, or error code if there is an error
+"""Display body of given url, or error code if there is an error"""
 from urllib import request, error
 from sys import argv
 
