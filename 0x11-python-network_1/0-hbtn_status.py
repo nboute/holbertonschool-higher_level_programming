@@ -4,7 +4,7 @@
 from urllib.request import urlopen
 
 with urlopen("https://intranet.hbtn.io/status") as response:
-    print("Body Response:")
+    print("Body response:")
     body = response.read()
     print("\t- type: {}".format(type(body)))
     print("\t- content: {}".format(body))
