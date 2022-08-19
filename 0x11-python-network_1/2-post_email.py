@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 # Post given email as parameter to given url
 from urllib import request, parse
 from sys import argv

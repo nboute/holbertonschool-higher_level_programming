@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 # Display value of a variable in header of given URL
 import requests
 from sys import argv

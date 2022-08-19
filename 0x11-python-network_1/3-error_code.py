@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 # Display body of given url, or error code if there is an error
 from urllib import request, error
 from sys import argv

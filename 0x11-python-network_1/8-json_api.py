@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 # Send a post request to a url, and checks if the response is valid json
 import requests
 from sys import argv

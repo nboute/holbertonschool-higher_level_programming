@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 # Lists 10 latest commits of given repository
 from sys import argv
 import requests

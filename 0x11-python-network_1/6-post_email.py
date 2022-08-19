@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 # Post given email as parameter to given url
 import requests
 from sys import argv
