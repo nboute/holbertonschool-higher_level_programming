@@ -3,5 +3,6 @@
 import requests
 from sys import argv
 
-resp = requests.get(argv[1])
-print(resp.headers.get('X-Request-Id'))
+if __name__ == "__main__":
+    resp = requests.get(argv[1])
+    print(resp.headers.get('X-Request-Id'))
