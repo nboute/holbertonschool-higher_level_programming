@@ -3,20 +3,16 @@
 const axios = require('axios');
 const argv = process.argv;
 
-async function getData (url) {
+async function getCharacters () {
   try {
-    const res = await axios.get(url);
-    return res.data;
+    const characList = await axios.get(`https://swapi-api.hbtn.io/api/films/${argv[2]}`);
+    for (const url of characList.data.characters) {
+      const charac = await axios.get(url);
+      console.log(charac.data.name);
+    }
   } catch (err) {
     console.error(err);
   }
 }
 
-const url = `https://swapi-api.hbtn.io/api/films/${argv[2]}`;
-getData(url)
-  .then(res => {
-    res.characters.forEach((charac) => {
-      getData(charac)
-        .then(res => console.log(res.name));
-    });
-  });
+getCharacters();
