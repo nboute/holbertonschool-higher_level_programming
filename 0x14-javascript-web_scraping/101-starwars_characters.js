@@ -3,20 +3,20 @@
 const axios = require('axios');
 const argv = process.argv;
 
-axios
-  .get(`https://swapi-api.hbtn.io/api/films/${argv[2]}`)
+async function getData (url) {
+  try {
+    const res = await axios.get(url);
+    return res.data;
+  } catch (err) {
+    console.error(err);
+  }
+}
+
+const url = `https://swapi-api.hbtn.io/api/films/${argv[2]}`;
+getData(url)
   .then(res => {
-    res.data.characters.forEach(function (url) {
-      axios
-        .get(url)
-        .then(res => {
-          console.log(res.data.name);
-        })
-        .catch(error => {
-          console.log(`code: ${error}`);
-        });
+    res.characters.forEach((charac) => {
+      getData(charac)
+        .then(res => console.log(res.name));
     });
-  })
-  .catch(error => {
-    console.log(`code: ${error}`);
   });
