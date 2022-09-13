@@ -16,7 +16,4 @@ axios
       }
     });
     console.log(users);
-  })
-  .catch(error => {
-    console.log(`code: ${error}`);
   });
